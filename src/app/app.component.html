@@ -1,0 +1,10 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<h1>From app component</h1>
+<h2>{{manager | lowercase}}</h2>
+<h2>{{manager | titlecase}}</h2>
+<app-test (childEvent)="manager=$event" [parentData]="companyName"></app-test>
+
+
+
+<router-outlet ></router-outlet>

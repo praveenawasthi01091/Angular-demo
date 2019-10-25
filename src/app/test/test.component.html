@@ -1,0 +1,101 @@
+<p>welcome {{name}}</p>
+
+<!-- data from parent -->
+<!-- <h2>{{parentData}}</h2> -->
+<h2 class="text-failed">{{myCompany}}</h2>
+
+<!-- send data to parent -->
+<button (click)="fireEvent()">send data</button>
+
+
+
+<h2>{{greetuser() +current_time}}</h2>
+<h3> {{ "Url " +siteurl}}</h3>
+<input [disabled]="flase" [id]="myId" type="text" value="praveen"> <br>
+<input [disabled]="isDasbled" id="{{myId}}" type="text" value="7980878916"><br>
+<input bind-disabled="isDasbled" id="{{myId}}" type="text" value="praveenawasthi01091@gmail.com"><br>
+<!-- event binding -->
+<button (click)=onClick($event)>Submit</button>
+<h3 style="color: aqua;">{{greetings}}</h3>
+<button (click)="greetings2='Welcome Praveen'">Get your name</button>
+<h3 style="color: rgb(223, 136, 86);">{{greetings2}}</h3>
+
+<!-- class binding  -->
+<h3 [class]="success_class">form submitted successfully @ {{current_time | date: 'short'}}</h3>
+<h3 [class.text-failed]="hasErr">Error ;(</h3>
+<h3 [ngClass]="messageClass">Special and success :)</h3>
+
+<!-- style binding -->
+<h2 [style.color]="'orange'">style binding</h2>
+<h2 [style.color]="hasErr ? 'red':'green'">style binding with operator</h2>
+<h2 [style.color]="myColor">Style binding3</h2>
+
+<!-- template reference variable -->
+<h2>welcome <i style="color: green;">{{" "+name}}</i></h2>
+<input #myInput type="text"><br>
+<button style="background-color: blanchedalmond;" (click)="logMessage(myInput)">log</button>
+
+<br><br>
+<!-- two way binding -->
+<input [(ngModel)]="yourName" type="text" placeholder="Enter yr name">
+<h2 [class]="success_class">{{yourName}}</h2>
+
+<!-- structural directives -->
+   <!-- 1. ngIf -->
+   <h2 *ngIf="display_bye; else elseBlock">
+       Hii
+   </h2>
+   <ng-template #elseBlock>
+       <h2>Bye</h2>
+   </ng-template>
+
+   <!-- 2nd  example -->
+   <div *ngIf="display_bye; then thenBlock; else elseBlock2;"></div>
+        <ng-template #thenBlock>
+                <h2>Hii</h2>
+        </ng-template>
+        <ng-template #elseBlock2>
+                <h2>Bye</h2>
+        </ng-template>
+
+
+      <!-- two way binding  and switch case-->
+<input [(ngModel)]="your_color" type="text" placeholder="Pick color">
+
+    <!-- 2. switchNg -->
+    <div [ngSwitch]="your_color">
+        <div *ngSwitchCase="'red'" class="text-failed">You picked red color</div>
+        <div *ngSwitchCase="'green'" class="text-success">You picked green color</div>
+        <div *ngSwitchDefault>Pick again</div>
+    </div>
+
+    <!-- ngFor -->
+    <div *ngFor="let color of colors; index as  i">
+        <h3>{{i+" "}}{{color}}</h3>
+    </div>
+    <!-- <div *ngFor="l<app-component31></app-component31>et color of colors; first as f">
+            <h3>{{f+" "}}{{color}}</h3>
+    </div>
+    <div *ngFor="let color of colors; last as l">
+            <h3>{{l+" "}}{{color}}</h3>
+    </div> -->
+     <!-- <div *ngFor="let color of colors; odd as o">
+            <h3>{{o+" "}}{{color}}</h3>
+    </div>
+    <div *ngFor="let color of colors; even as e">
+            <h3>{{e+" "}}{{color}}</h3>
+    </div> -->
+
+    <h2>{{1.23 | currency: 'INR': 'code'}}</h2>
+    <h2>{{0.23 | percent}}</h2>
+
+    <h2>{{"praveen awasthi" | lowercase}}</h2>
+    <h2>{{"praveen awasthi" | uppercase}}</h2>
+    <h2>{{"praveen awasthi" | titlecase}}</h2>
+
+    <!-- <h3>{{1.23| number :'2.3-4'}}</h3>
+
+    <h3>{{current_time| date:'shortDate'}}</h3>
+    <h3>{{current_time| date:'shortTime'}}</h3> -->
+  
+<app-testchild [parentData]="myCompany" ></app-testchild>
